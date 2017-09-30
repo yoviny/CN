@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+
+	<title>Arduino LED On/Off</title>
+
+	<style>
+		@import 'ui/css/evothings-app.css';
+	</style>
+
+	<script>
+	// Redirect console.log to Evothings Workbench.
+	if (window.hyper && window.hyper.log) { console.log = hyper.log }
+	</script>
+
+	<script src="cordova.js"></script>
+	<script src="libs/jquery/jquery.js"></script>
+	<script src="libs/evothings/evothings.js"></script>
+	<script src="libs/evothings/ui/ui.js"></script>
+	<script src="libs/evothings/arduinotcp/arduinotcp.js"></script>
+	
+	</head>
+
+<body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
+
+	<header>
+		<button class="back" onclick="history.back()">
+			<img src="ui/images/arrow-left.svg" />
+		</button>
+
+		<img class="logotype" src="ui/images/logo.png" alt="Evothings" />
+
+		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
+	</header>
+	
+	<h1>Arduino LED On/Off</h1>
+	
+	<br />
+
+	<!--<p>Status: <span id="ArduinoStatus">Not connected</span></p>-->
+
+	<button class="green" onclick="location.href = 'https://cloud.arest.io/yovin/led?params=1'" style="width:100%;padding: 25px 0px" onclick="app.ledOn()">LED ON</button> 
+
+	<button class="red" onclick="location.href = 'https://cloud.arest.io/yovin/led?params=0'" style="width:100%;padding: 25px 0px" onclick="app.ledoff()">LED OFF</button>
+	
+	<script>
+	
+	// Application object.
+	var app = {}
+
+	// Turn on LED.
+	app.ledOn = function()
+	{
+
+		$('#ArduinoStatus').html('Connected to the Arduino')
+	}
+
+	// Turn off LED.
+	app.ledOff = function()
+	{
+		$('#ArduinoStatus').html('Not Connected to the Arduino')
+	}
+
+	</script>
+	
+</body>
+
+</html>
